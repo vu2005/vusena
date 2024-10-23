@@ -1,0 +1,34 @@
+Table: Category
+- CategoryId (PK)
+- CategoryName
+
+Table: Role
+- RoleId (PK)
+- RoleName
+
+Table: Product
+- ProductId (PK)
+- ProductName
+- Price
+- Description
+- CategoryId (FK, references Category)
+
+Table: Customer
+- CustomerId (PK)
+- FirstName
+- LastName
+- Email (Unique)
+- PhoneNumber
+
+Table: PurchaseHistory
+- PurchaseId (PK)
+- CustomerId (FK, references Customer)
+- ProductId (FK, references Product)
+- PurchaseDate
+- Quantity
+
+Table: Employee
+- EmployeeId (PK)
+- FirstName
+- LastName
+- RoleId (FK, references Role)
