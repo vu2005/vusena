@@ -1,34 +1,54 @@
-Table: Category
-- CategoryId (PK)
-- CategoryName
+# Diagram for Database Schema
 
-Table: Role
-- RoleId (PK)
-- RoleName
+# Category
+Category
+-------------------
+CategoryId (PK)
+CategoryName
 
-Table: Product
-- ProductId (PK)
-- ProductName
-- Price
-- Description
-- CategoryId (FK, references Category)
+# Role
+Role
+-------------------
+RoleId (PK)
+RoleName
 
-Table: Customer
-- CustomerId (PK)
-- FirstName
-- LastName
-- Email (Unique)
-- PhoneNumber
+# Product
+Product
+-------------------
+ProductId (PK)
+ProductName
+Price
+Description
+CategoryId (FK)
 
-Table: PurchaseHistory
-- PurchaseId (PK)
-- CustomerId (FK, references Customer)
-- ProductId (FK, references Product)
-- PurchaseDate
-- Quantity
+# Customer
+Customer
+-------------------
+CustomerId (PK)
+FirstName
+LastName
+Email (Unique)
+PhoneNumber
 
-Table: Employee
-- EmployeeId (PK)
-- FirstName
-- LastName
-- RoleId (FK, references Role)
+# PurchaseHistory
+PurchaseHistory
+-------------------
+PurchaseId (PK)
+CustomerId (FK)
+ProductId (FK)
+PurchaseDate
+Quantity
+
+# Employee
+Employee
+-------------------
+EmployeeId (PK)
+FirstName
+LastName
+RoleId (FK)
+
+# Relationships
+Category.CategoryId -> Product.CategoryId
+Role.RoleId -> Employee.RoleId
+Customer.CustomerId -> PurchaseHistory.CustomerId
+Product.ProductId -> PurchaseHistory.ProductId
